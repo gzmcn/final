@@ -31,15 +31,15 @@ class Insan():
     # set metodlari
     def set_tc_no(self, tc_no):
        self.__tc_no = tc_no
-    def set_tc_no(self, ad):
+    def set_ad(self, ad):
        self.__ad = ad
-    def set_tc_no(self, soyad):
+    def set_soyad(self, soyad):
        self.__soyad = soyad
-    def set_tc_no(self, yas):
+    def set_yas(self, yas):
        self.__yas = yas
-    def set_tc_no(self, cinsiyet):
+    def set_cinsiyet(self, cinsiyet):
        self.__cinsiyet = cinsiyet
-    def set_tc_no(self, uyruk):
+    def set_uyruk(self, uyruk):
        self.__uyruk = uyruk
 
     #__str__ ile kullanici bilgileri
