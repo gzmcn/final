@@ -38,15 +38,25 @@ class Issiz(Insan):
 
 
     def yil_degeri_ekle(self, statu, yil_degeri):
-        self.__yil_degeri[statu] = yil_degeri
-        self.statu_bul()
+        try:
+            yil_degeri = int(yil_degeri)
+            if yil_degeri < 0:
+                raise ValueError("Yil degeri negatif olamaz.")
+            self.__yil_degeri[statu] = yil_degeri
+            self.statu_bul()
+        except ValueError as e:
+            print("Hata:", str(e))
+        except TypeError:
+            print("Hata: Yil degeri bir sayi olmalidir.")
+
+
 
     def __str__(self):
         return self.__en_uygun_statu
 
 
 issiz = Issiz("12345678901", "ali", "demir", 44, "e", "turk")
-issiz.yil_degeri_ekle("mavi yaka", 5)
+issiz.yil_degeri_ekle("mavi yaka", -5)
 issiz.yil_degeri_ekle("beyaz yaka", 10)
 issiz.yil_degeri_ekle("yonetici", 2)
 print(issiz)
