@@ -43,6 +43,7 @@ class Insan():
        self.__uyruk = uyruk
 
     #__str__ ile kullanici bilgileri
-    
+    def __str__(self):
+        return f"kullanici bilgileri: {self.get_ad}, {self.get_soyad}, {self.get_tc_no}, {self.get_cinsiyet}, {self.get_yas}, {self.get_uyruk} "
 
     
