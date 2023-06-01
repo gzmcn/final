@@ -56,7 +56,7 @@ class Issiz(Insan):
 
 
 issiz = Issiz("12345678901", "ali", "demir", 44, "e", "turk")
-issiz.yil_degeri_ekle("mavi yaka", -5)
+issiz.yil_degeri_ekle("mavi yaka", 1)
 issiz.yil_degeri_ekle("beyaz yaka", 10)
 issiz.yil_degeri_ekle("yonetici", 2)
 print(issiz)
