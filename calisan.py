@@ -37,13 +37,13 @@ class Calisan(Insan):
         if self.__tecrube < 24:
             self.zam_orani = 0
         elif 24 <= self.__tecrube < 48 and self.__maas < 15000:
-            self.zam_orani = (self.__maas * self.__tecrube) / 100
+            self.zam_orani = (self.__maas % self.__tecrube) / 100
         elif self.__tecrube >= 48 and self.__maas < 25000:
-            self.zam_orani = (self.__maas * self.__tecrube) / 200
+            self.zam_orani = (self.__maas % self.__tecrube) / 200
 
         # self.zam = self.zam_orani * self.__maas
         # self.set_maas(self.get_maas() + self.zam)
-        self.zam = self.zam_orani
+        self.zam = self.zam_orani * self.__maas
         self.set_maas(self.get_maas() + self.zam)
 
         print(self.zam_orani)
