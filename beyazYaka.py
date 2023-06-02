@@ -1,11 +1,13 @@
 from calisan import Calisan
 
-class beyazYaka(Calisan):
-    def __init__(self, tc_no, ad: str, soyad: str, yas: int, cinsiyet, uyruk: str, tecrube=float, maas= float, tesvik_primi = 2000):
+class beyaz_yaka(Calisan):
+    def __init__(self, tc_no, ad: str, soyad: str, yas: int, cinsiyet, uyruk: str, tecrube=float, maas= None, tesvik_primi = 2000):
         # tum metodlari ve degiskenleri tekrar yazmamak icin super fonksiyonunu kullaniyoruz
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk, tecrube, maas)
 
+        self.__tecrube = tecrube
         self.__tesvik_primi = tesvik_primi
+        self.__maas = maas if maas is not None else 0.0
 
 
     # get metodlari
@@ -27,13 +29,13 @@ class beyazYaka(Calisan):
         elif 24 <= self.__tecrube < 48 and self.__maas < 15000:
             self.zam = ((self.__maas % self.__tecrube) * 5) + self.__tesvik_primi
         elif self.__tecrube >= 48 and self.__maas < 25000:
-            self.zam = ((self.__maas % self.__tecrube) * 4= + self.__tesvik_primi
+            self.zam = ((self.__maas % self.__tecrube) * 4) + self.__tesvik_primi
 
-        # self.zam = self.zam_orani * self.__maas
-        # self.__maas = self.zam + self.
+      # self.zam = self.zam_orani * self.__maas
+      # self.__maas = self.zam + self.
         self.set_maas(self.get_maas() + self.zam)
 
-        print(self.zam_orani)
+      # print(self.zam_orani)
         print(self.zam)
 
     def __str__(self):

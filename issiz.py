@@ -9,6 +9,16 @@ class Issiz(Insan):
     def __init__(self, tc_no, ad: str, soyad: str, yas: int, cinsiyet, uyruk: str, yil_degeri=None, statu=["mavi yaka", "beyaz yaka", "yonetici"]):
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk)
         self.__yil_degeri = yil_degeri if yil_degeri is not None else {}
+        self.__en_uygun_statu = ""
+        self.__ad = ad
+        self.__soyad = soyad
+        self.statu_bul()
+
+    def get_ad(self):
+       return  self.__ad
+
+    def get_soyad(self):
+       return  self.__soyad
 
     def get_yil_degeri(self):
         return self.__yil_degeri
@@ -36,6 +46,9 @@ class Issiz(Insan):
 
         self.__en_uygun_statu = en_uygun_statu
 
+    def get_en_uygun_statu(self):
+        return self.__en_uygun_statu
+
 
     def yil_degeri_ekle(self, statu, yil_degeri):
         try:
@@ -52,14 +65,8 @@ class Issiz(Insan):
 
 
     def __str__(self):
-        return self.__en_uygun_statu
-
-
-issiz = Issiz("12345678901", "ali", "demir", 44, "e", "turk")
-issiz.yil_degeri_ekle("mavi yaka", 1)
-issiz.yil_degeri_ekle("beyaz yaka", 10)
-issiz.yil_degeri_ekle("yonetici", 2)
-print(issiz)
+        # en_uygun_statu = self.get_en_uygun_statu()
+        return f"ad: {self.get_ad()}, soyad: {self.get_soyad()}, en uygun statu: {self.get_en_uygun_statu()}"
 
 
 
