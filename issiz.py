@@ -14,7 +14,6 @@ class Issiz(Insan):
         self.__soyad = soyad
         self.statu_bul()
 
-
     def get_ad(self):
        return  self.__ad
 

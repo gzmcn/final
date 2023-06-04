@@ -5,6 +5,7 @@ class mavi_yaka(Calisan):
         # tum metodlari ve degiskenleri tekrar yazmamak icin super fonksiyonunu kullaniyoruz
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk)
     
+        self.__yeni_maas = 0
         self.__tecrube = tecrube
         self.__maas = maas
         self.__yipranma_payi = yipranma_payi
@@ -25,6 +26,11 @@ class mavi_yaka(Calisan):
     def set_yipranma_payi(self, yipranma_payi):
         self.__yipranma_payi = yipranma_payi
 
+    def get_yeni_maas(self):
+        return self.__yeni_maas
+    def set_yeni_maas(self, yeni_maas):
+        self.__yeni_maas = yeni_maas
+
     def zam_hakki(self):
         self.zam_orani = 0
         if self.__tecrube < 24:
@@ -34,14 +40,13 @@ class mavi_yaka(Calisan):
         elif self.__tecrube >= 48 and self.__maas < 25000:
             self.zam_orani = ((self.__maas % self.__tecrube) / 3 + (self.__yipranma_payi * 10)) / 100
 
-        self.zam = self.zam_orani * self.__maas
-        self.set_maas(self.get_maas() + self.zam)
-
-        print(self.zam_orani)
-        print(self.zam)
+        self.zam = self.zam_orani * self.get_maas()
+        # self.set_maas(self.get_maas() + self.zam)
+        self.set_yeni_maas(self.get_maas() + self.zam)
+       
 
     def __str__(self):
-        return f"Kullanici bilgileri: {self.get_ad()}, {self.get_soyad()}, yeni maas: {self.__maas}, tecrube: {self.__tecrube}"
+        return f"Kullanici bilgileri: {self.get_ad()}, {self.get_soyad()}, yeni maas: {self.get_yeni_maas()}, tecrube: {self.__tecrube}"
 
 
 
