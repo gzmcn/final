@@ -39,7 +39,7 @@ def main():
         maviyaka2 = mavi_yaka("12345678901", "mehmet", "demir", 40, "e", "turk", 50, 19442)
         maviyaka3 = mavi_yaka("83659375027", "ayse", "oz", 46, "k", "turk", 27, 11384)
 
-        beyazyaka1 = beyaz_yaka("40445674801", "ayse", "kemer", 32, "k", "turk", 70, 24695)
+        beyazyaka1 = beyaz_yaka("40445674801", "ayse", "kemer", 32, "k", "turk", 80, 24695)
         beyazyaka2 = beyaz_yaka("12345678901", "ali", "demir", 44, "e", "turk", 30, 12442)
         beyazyaka3 = beyaz_yaka("92734872832", "yesim", "berra", 33, "k", "turk", 44, 44837)
 
@@ -51,7 +51,7 @@ def main():
             "yas": 44,
             "cinsiyet": "e",
             "uyruk": "turk",
-            "tecrube": 30,
+            "tecrube": 30/12,   # 12'ye bolerek yila ceviriyoruz
             "maas": 12442,
             "sektor": calisan1.get_sektor()
         },
@@ -62,7 +62,7 @@ def main():
             "yas": 32,
             "cinsiyet": "k",
             "uyruk": "turk",
-            "tecrube": 70,
+            "tecrube": 70/12,
             "maas": 24695,
             "sektor": calisan2.get_sektor()
         },
@@ -73,7 +73,7 @@ def main():
             "yas": 25,
             "cinsiyet": "e",
             "uyruk": "turk",
-            "tecrube": 12,
+            "tecrube": 12/12,
             "maas": 9246,
             "sektor": calisan3.get_sektor()
         },
@@ -84,7 +84,7 @@ def main():
             "yas": 25,
             "cinsiyet": "e",
             "uyruk": "turk",
-            "tecrube": 12,
+            "tecrube": 12/12,
             "maas": 9246,
             "sektor": "0"
         },
@@ -95,7 +95,7 @@ def main():
             "yas": 40,
             "cinsiyet": "e",
             "uyruk": "turk",
-            "tecrube": 50,
+            "tecrube": 50/12,
             "maas": 19442,
             "sektor": "0"
         },
@@ -106,7 +106,7 @@ def main():
             "yas": 46,
             "cinsiyet": "k",
             "uyruk": "turk",
-            "tecrube": 27,
+            "tecrube": 27/12,
             "maas": 11384,
             "sektor": "0"
         },
@@ -117,8 +117,9 @@ def main():
             "yas": 32,
             "cinsiyet": "k",
             "uyruk": "turk",
-            "tecrube": 70,
-            "maas": 24695
+            "tecrube": 80/12,
+            "maas": 24695,
+            "sektor": "0"
         },
         "beyazyaka2": {
             "tc_no": "12345678901",
@@ -127,7 +128,7 @@ def main():
             "yas": 44,
             "cinsiyet": "e",
             "uyruk": "turk",
-            "tecrube": 30,
+            "tecrube": 30/12,
             "maas": 12442,
             "sektor": "0"
         },
@@ -138,7 +139,7 @@ def main():
             "yas": 33,
             "cinsiyet": "k",
             "uyruk": "turk",
-            "tecrube": 18,
+            "tecrube": 18/12,
             "maas": 13902,
             "sektor": "0"
         }
@@ -152,6 +153,9 @@ def main():
         df = pd.DataFrame(data_list)
         pd.set_option("display.max_columns", None)
         print(df)
+
+        yuksek_maas = df[df["maas"] > 15000]
+        print(yuksek_maas)
           
 
         issizler = [issiz1, issiz2, issiz3]
@@ -176,6 +180,13 @@ def main():
             beyazyaka.zam_hakki()
             print(beyazyaka.get_yeni_maas())
             print(beyazyaka)
+
+        df.rename(columns={'maas': 'yeni_maas'}, inplace=True)
+        df_buyukten_kucuge = df.sort_values(by='yeni_maas', ascending=False)
+        print(df_buyukten_kucuge)
+
+        beyazyaka_df = df[(df['kisi_tipi'].str.contains('beyazyaka')) & (df['tecrube'] > 3)]
+        print(beyazyaka_df)
 
     except Exception as e:
         print("An error occurred:", str(e))
