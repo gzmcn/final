@@ -17,6 +17,9 @@ class Calisan(Insan):
             sektor = input("Lutfen sektoru girin (teknoloji, muhasebe, insaat, diger): ")
         return sektor
 
+    def get_sektor(self, sektor):
+        return sektor
+
     # get metodlari
     def get_tc_no(self):
         return super().get_tc_no()

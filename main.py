@@ -52,7 +52,8 @@ def main():
             "cinsiyet": "e",
             "uyruk": "turk",
             "tecrube": 30,
-            "maas": 12442
+            "maas": 12442,
+            "sektor": calisan1.get_sektor()
         },
         "calisan2": {
             "tc_no": "40445674801",
@@ -62,7 +63,8 @@ def main():
             "cinsiyet": "k",
             "uyruk": "turk",
             "tecrube": 70,
-            "maas": 24695
+            "maas": 24695,
+            "sektor": calisan2.get_sektor()
         },
         "calisan3": {
             "tc_no": "22241078301",
@@ -72,7 +74,8 @@ def main():
             "cinsiyet": "e",
             "uyruk": "turk",
             "tecrube": 12,
-            "maas": 9246
+            "maas": 9246,
+            "sektor": calisan3.get_sektor()
         },
         "maviyaka1": {
             "tc_no": "22241078301",
@@ -82,7 +85,8 @@ def main():
             "cinsiyet": "e",
             "uyruk": "turk",
             "tecrube": 12,
-            "maas": 9246
+            "maas": 9246,
+            "sektor": "0"
         },
         "maviyaka2": {
             "tc_no": "12345678901",
@@ -92,7 +96,8 @@ def main():
             "cinsiyet": "e",
             "uyruk": "turk",
             "tecrube": 50,
-            "maas": 19442
+            "maas": 19442,
+            "sektor": "0"
         },
         "maviyaka3": {
             "tc_no": "83659375027",
@@ -102,7 +107,8 @@ def main():
             "cinsiyet": "k",
             "uyruk": "turk",
             "tecrube": 27,
-            "maas": 11384
+            "maas": 11384,
+            "sektor": "0"
         },
         "beyazyaka1": {
             "tc_no": "40445674801",
@@ -122,7 +128,8 @@ def main():
             "cinsiyet": "e",
             "uyruk": "turk",
             "tecrube": 30,
-            "maas": 12442
+            "maas": 12442,
+            "sektor": "0"
         },
             "beyazyaka3": {
             "tc_no": "92734872832",
@@ -132,7 +139,8 @@ def main():
             "cinsiyet": "k",
             "uyruk": "turk",
             "tecrube": 18,
-            "maas": 13902
+            "maas": 13902,
+            "sektor": "0"
         }
 
     }
@@ -142,6 +150,7 @@ def main():
             data_list.append(value)
 
         df = pd.DataFrame(data_list)
+        pd.set_option("display.max_columns", None)
         print(df)
           
 

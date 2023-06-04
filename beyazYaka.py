@@ -13,17 +13,17 @@ class beyaz_yaka(Calisan):
 
     # get metodlari
     def get_tc_no(self):
-       return  self.__tc_no
+        return super().get_tc_no()
     def get_ad(self):
-       return  self.__ad
+       return super().get_ad()
     def get_soyad(self):
-       return  self.__soyad
+       return super().get_soyad()
     def get_yas(self):
-       return  self.__yas
+       return  super().get_yas
     def get_cinsiyet(self):
-       return  self.__cinsiyet
+       return  super().get_cinsiyet
     def get_uyruk(self):
-       return  self.__uyruk
+       return  super().get_uyruk
     def get_tesvik_primi(self):
         return self.__tesvik_primi
     def get_maas(self):
