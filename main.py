@@ -43,121 +43,6 @@ def main():
         beyazyaka2 = beyaz_yaka("12345678901", "ali", "demir", 44, "e", "turk", 30, 12442)
         beyazyaka3 = beyaz_yaka("92734872832", "yesim", "berra", 33, "k", "turk", 44, 44837)
 
-        data ={
-            "calisan1": {
-            "tc_no": "12345678901",
-            "ad": "ali",
-            "soyad": "demir",
-            "yas": 44,
-            "cinsiyet": "e",
-            "uyruk": "turk",
-            "tecrube": 30/12,   # 12'ye bolerek yila ceviriyoruz
-            "maas": 12442,
-            "sektor": calisan1.get_sektor()
-        },
-        "calisan2": {
-            "tc_no": "40445674801",
-            "ad": "ayse",
-            "soyad": "kemer",
-            "yas": 32,
-            "cinsiyet": "k",
-            "uyruk": "turk",
-            "tecrube": 70/12,
-            "maas": 24695,
-            "sektor": calisan2.get_sektor()
-        },
-        "calisan3": {
-            "tc_no": "22241078301",
-            "ad": "veli",
-            "soyad": "kul",
-            "yas": 25,
-            "cinsiyet": "e",
-            "uyruk": "turk",
-            "tecrube": 12/12,
-            "maas": 9246,
-            "sektor": calisan3.get_sektor()
-        },
-        "maviyaka1": {
-            "tc_no": "22241078301",
-            "ad": "veli",
-            "soyad": "kul",
-            "yas": 25,
-            "cinsiyet": "e",
-            "uyruk": "turk",
-            "tecrube": 12/12,
-            "maas": 9246,
-            "sektor": "0"
-        },
-        "maviyaka2": {
-            "tc_no": "12345678901",
-            "ad": "mehmet",
-            "soyad": "demir",
-            "yas": 40,
-            "cinsiyet": "e",
-            "uyruk": "turk",
-            "tecrube": 50/12,
-            "maas": 19442,
-            "sektor": "0"
-        },
-        "maviyaka3": {
-            "tc_no": "83659375027",
-            "ad": "ayse",
-            "soyad": "oz",
-            "yas": 46,
-            "cinsiyet": "k",
-            "uyruk": "turk",
-            "tecrube": 27/12,
-            "maas": 11384,
-            "sektor": "0"
-        },
-        "beyazyaka1": {
-            "tc_no": "40445674801",
-            "ad": "ayse",
-            "soyad": "kemer",
-            "yas": 32,
-            "cinsiyet": "k",
-            "uyruk": "turk",
-            "tecrube": 80/12,
-            "maas": 24695,
-            "sektor": "0"
-        },
-        "beyazyaka2": {
-            "tc_no": "12345678901",
-            "ad": "ali",
-            "soyad": "demir",
-            "yas": 44,
-            "cinsiyet": "e",
-            "uyruk": "turk",
-            "tecrube": 30/12,
-            "maas": 12442,
-            "sektor": "0"
-        },
-            "beyazyaka3": {
-            "tc_no": "92734872832",
-            "ad": "yesim",
-            "soyad": "berra",
-            "yas": 33,
-            "cinsiyet": "k",
-            "uyruk": "turk",
-            "tecrube": 18/12,
-            "maas": 13902,
-            "sektor": "0"
-        }
-
-    }
-        data_list = []
-        for key, value in data.items():
-            value["kisi_tipi"] = key  # Add a new key-value pair for "kisi_tipi"
-            data_list.append(value)
-
-        df = pd.DataFrame(data_list)
-        pd.set_option("display.max_columns", None)
-        print(df)
-
-        yuksek_maas = df[df["maas"] > 15000]
-        print(yuksek_maas)
-          
-
         issizler = [issiz1, issiz2, issiz3]
         for issiz in issizler:
             issiz.statu_bul()
@@ -181,12 +66,145 @@ def main():
             print(beyazyaka.get_yeni_maas())
             print(beyazyaka)
 
-        df.rename(columns={'maas': 'yeni_maas'}, inplace=True)
-        df_buyukten_kucuge = df.sort_values(by='yeni_maas', ascending=False)
+        data ={
+            "calisan1": {
+            "tc_no": "12345678901",
+            "ad": "ali",
+            "soyad": "demir",
+            "yas": 44,
+            "cinsiyet": "e",
+            "uyruk": "turk",
+            "tecrube": 30/12,   # 12'ye bolerek yila ceviriyoruz
+            "maas": calisan1.get_maas(),
+            "sektor": calisan1.get_sektor(),
+            "yeni maas": calisan1.get_yeni_maas()
+        },
+        "calisan2": {
+            "tc_no": "40445674801",
+            "ad": "ayse",
+            "soyad": "kemer",
+            "yas": 32,
+            "cinsiyet": "k",
+            "uyruk": "turk",
+            "tecrube": 70/12,
+            "maas": calisan2.get_maas(),
+            "sektor": calisan2.get_sektor(),
+            "yeni maas": calisan2.get_yeni_maas()
+        },
+        "calisan3": {
+            "tc_no": "22241078301",
+            "ad": "veli",
+            "soyad": "kul",
+            "yas": 25,
+            "cinsiyet": "e",
+            "uyruk": "turk",
+            "tecrube": 12/12,
+            "maas": calisan3.get_maas(),
+            "sektor": calisan3.get_sektor(),
+            "yeni maas": calisan3.get_yeni_maas()
+        },
+        "maviyaka1": {
+            "tc_no": "22241078301",
+            "ad": "veli",
+            "soyad": "kul",
+            "yas": 25,
+            "cinsiyet": "e",
+            "uyruk": "turk",
+            "tecrube": 12/12,
+            "maas": maviyaka1.get_maas(),
+            "sektor": "0",
+            "yeni maas": maviyaka1.get_yeni_maas()
+        },
+        "maviyaka2": {
+            "tc_no": "12345678901",
+            "ad": "mehmet",
+            "soyad": "demir",
+            "yas": 40,
+            "cinsiyet": "e",
+            "uyruk": "turk",
+            "tecrube": 50/12,
+            "maas": maviyaka2.get_maas(),
+            "sektor": "0",
+            "yeni maas": maviyaka2.get_yeni_maas()
+        },
+        "maviyaka3": {
+            "tc_no": "83659375027",
+            "ad": "ayse",
+            "soyad": "oz",
+            "yas": 46,
+            "cinsiyet": "k",
+            "uyruk": "turk",
+            "tecrube": 27/12,
+            "maas": maviyaka3.get_maas(),
+            "sektor": "0",
+            "yeni maas": maviyaka3.get_yeni_maas()
+        },
+        "beyazyaka1": {
+            "tc_no": "40445674801",
+            "ad": "ayse",
+            "soyad": "kemer",
+            "yas": 32,
+            "cinsiyet": "k",
+            "uyruk": "turk",
+            "tecrube": 80/12,
+            "maas": beyazyaka1.get_maas(),
+            "sektor": "0",
+            "yeni maas": beyazyaka1.get_yeni_maas()
+        },
+        "beyazyaka2": {
+            "tc_no": "12345678901",
+            "ad": "ali",
+            "soyad": "demir",
+            "yas": 44,
+            "cinsiyet": "e",
+            "uyruk": "turk",
+            "tecrube": 30/12,
+            "maas": beyazyaka2.get_maas(),
+            "sektor": "0",
+            "yeni maas": beyazyaka2.get_yeni_maas()
+        },
+            "beyazyaka3": {
+            "tc_no": "92734872832",
+            "ad": "yesim",
+            "soyad": "berra",
+            "yas": 33,
+            "cinsiyet": "k",
+            "uyruk": "turk",
+            "tecrube": 18/12,
+            "maas": beyazyaka3.get_maas(),
+            "sektor": "0",
+            "yeni maas": beyazyaka3.get_yeni_maas()
+        }
+
+    }
+        data_list = []
+        for key, value in data.items():
+            value["kisi_tipi"] = key  # Add a new key-value pair for "kisi_tipi"
+            data_list.append(value)
+
+        df = pd.DataFrame(data_list)
+        pd.set_option("display.max_columns", None)
+        print(df)
+
+        yuksek_maas = df[df["maas"] > 15000]
+        print(yuksek_maas)
+          
+
+
+        # df.rename(columns={'maas': 'yeni_maas'}, inplace=True)
+        df_buyukten_kucuge = df.sort_values(by='yeni maas', ascending=False)
         print(df_buyukten_kucuge)
 
         beyazyaka_df = df[(df['kisi_tipi'].str.contains('beyazyaka')) & (df['tecrube'] > 3)]
         print(beyazyaka_df)
+
+        yeni1_df = df[df["yeni maas"] > 10000]
+        sutunlar = ["tc_no", "yeni maas"]
+        cikti_df = yeni1_df[sutunlar].iloc[1:5]
+        print(cikti_df)
+
+        yeni_df = df[["ad", "soyad", "sektor", "yeni maas"]]
+        print(yeni_df)
 
     except Exception as e:
         print("An error occurred:", str(e))
