@@ -18,6 +18,18 @@ class Calisan(Insan):
         return sektor
 
     # get metodlari
+    def get_tc_no(self):
+        return super().get_tc_no()
+    def get_ad(self):
+       return super().get_ad()
+    def get_soyad(self):
+       return super().get_soyad()
+    def get_yas(self):
+       return  super().get_yas
+    def get_cinsiyet(self):
+       return  super().get_cinsiyet
+    def get_uyruk(self):
+       return  super().get_uyruk
     def get_sektor(self):
         return self.__sektor
     def get_tecrube(self):
@@ -55,7 +67,7 @@ class Calisan(Insan):
 
 
     def __str__(self):
-        return f"Kullanici bilgileri: {self.get_ad()}, {self.get_soyad()}, yeni maas: {self.get_yeni_maas()}, tecrube: {self.__tecrube}"
+        return f"Kullanici bilgileri: {self.get_ad()}, {self.get_soyad()}, yeni maas: {self.get_yeni_maas()}, tecrube: {self.get_tecrube()}"
 
 
 
