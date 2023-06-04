@@ -8,6 +8,13 @@ class Issiz(Insan):
 
     def __init__(self, tc_no, ad: str, soyad: str, yas: int, cinsiyet, uyruk: str, yil_degeri=None, statu=["mavi yaka", "beyaz yaka", "yonetici"]):
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk)
+        # sınır kosulu
+        assert len(tc_no) == 11 , f"tc no 11 rakam icermelidir."
+        assert len(ad) < 30, f"ad 30 karakterden fazla olamaz"
+        assert len(soyad) < 30, f"soyad 30 karakterden fazla olamaz"
+        assert yas >= 18, "gecersiz yas: yas 18 veya daha buyuk olmali."
+        assert cinsiyet in ["k", "e"], "cinsiyet degeri e veya k olarak girilmeli"
+
         self.__yil_degeri = yil_degeri if yil_degeri is not None else {}
         self.__en_uygun_statu = ""
         self.__ad = ad

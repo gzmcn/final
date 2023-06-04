@@ -43,28 +43,41 @@ def main():
         beyazyaka2 = beyaz_yaka("12345678901", "ali", "demir", 44, "e", "turk", 30, 12442)
         beyazyaka3 = beyaz_yaka("92734872832", "yesim", "berra", 33, "k", "turk", 44, 44837)
 
+        
         issizler = [issiz1, issiz2, issiz3]
         for issiz in issizler:
-            issiz.statu_bul()
-            print(issiz)
+            try:
+                issiz.statu_bul()
+                print(issiz)
+            except Exception as e:
+                print("An error occurred:", str(e))
 
         calisanlar = [calisan1, calisan2, calisan3]
         for calisan in calisanlar:
-            calisan.zam_hakki()
-            print(calisan.get_yeni_maas())
-            print(calisan)
+            try:
+                calisan.zam_hakki()
+                print(calisan.get_yeni_maas())
+                print(calisan)
+            except Exception as e:
+                print("An error occurred:", str(e))
 
         maviyakalar = [maviyaka1, maviyaka2, maviyaka3]
         for maviyaka in maviyakalar:
-            maviyaka.zam_hakki()
-            print(maviyaka.get_yeni_maas())
-            print(maviyaka)
+            try:
+                maviyaka.zam_hakki()
+                print(maviyaka.get_yeni_maas())
+                print(maviyaka)
+            except Exception as e:
+                print("An error occurred:", str(e))
 
         beyazyakalar = [beyazyaka1, beyazyaka2, beyazyaka3]
         for beyazyaka in beyazyakalar:
-            beyazyaka.zam_hakki()
-            print(beyazyaka.get_yeni_maas())
-            print(beyazyaka)
+            try:
+                beyazyaka.zam_hakki()
+                print(beyazyaka.get_yeni_maas())
+                print(beyazyaka)
+            except Exception as e:
+                print("An error occurred:", str(e))
 
         data ={
             "calisan1": {
@@ -208,6 +221,12 @@ def main():
 
     except Exception as e:
         print("An error occurred:", str(e))
+
+    except AssertionError as ae:
+        print("Assertion Error:", str(ae))
+
+    except ValueError as ve:
+        print("Value Error:", str(ve))
 
 
 main()

@@ -4,6 +4,12 @@ class Calisan(Insan):
     def __init__(self, tc_no, ad: str, soyad: str, yas: int, cinsiyet, uyruk: str,tecrube = float,maas = float, yeni_maas = 0):
         # tum metodlari ve degiskenleri tekrar yazmamak icin super fonksiyonunu kullaniyoruz
         super().__init__(tc_no, ad, soyad, yas, cinsiyet, uyruk)
+        # sýnýr kosulu
+        assert len(tc_no) == 11 , f"tc no 11 rakam icermelidir."
+        assert len(ad) < 30, f"ad 30 karakterden fazla olamaz"
+        assert len(soyad) < 30, f"soyad 30 karakterden fazla olamaz"
+        assert yas >= 18, "gecersiz yas: yas 18 veya daha buyuk olmali."
+        assert cinsiyet in ["k", "e"], "cinsiyet degeri e veya k olarak girilmeli"
 
         self.__yeni_maas = yeni_maas
         self.__sektor = self.get_dogru_sektor()

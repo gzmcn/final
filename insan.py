@@ -2,9 +2,11 @@ class Insan():
 
     def __init__(self, tc_no, ad: str, soyad: str, yas:int, cinsiyet, uyruk: str):
         # sınır kosulu
-        assert len(tc_no) == 11 , f"tc no 11 rakam içermelidir."
+        assert len(tc_no) == 11 , f"tc no 11 rakam icermelidir."
         assert len(ad) < 30, f"ad 30 karakterden fazla olamaz"
         assert len(soyad) < 30, f"soyad 30 karakterden fazla olamaz"
+        assert yas >= 18, "gecersiz yas: yas 18 veya daha buyuk olmali."
+        assert cinsiyet in ["k", "e"], "cinsiyet degeri e veya k olarak girilmeli"
 
 
         self.__tc_no = tc_no
