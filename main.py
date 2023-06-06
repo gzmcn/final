@@ -125,7 +125,7 @@ def main():
             "uyruk": "turk",
             "tecrube": 12/12,
             "maas": maviyaka1.get_maas(),
-            "sektor": "0",
+            "sektor": maviyaka1.get_sektor(),
             "yeni maas": maviyaka1.get_yeni_maas()
         },
         "maviyaka2": {
@@ -137,7 +137,7 @@ def main():
             "uyruk": "turk",
             "tecrube": 50/12,
             "maas": maviyaka2.get_maas(),
-            "sektor": "0",
+            "sektor": maviyaka2.get_sektor(),
             "yeni maas": maviyaka2.get_yeni_maas()
         },
         "maviyaka3": {
@@ -149,7 +149,7 @@ def main():
             "uyruk": "turk",
             "tecrube": 27/12,
             "maas": maviyaka3.get_maas(),
-            "sektor": "0",
+            "sektor": maviyaka3.get_sektor(),
             "yeni maas": maviyaka3.get_yeni_maas()
         },
         "beyazyaka1": {
@@ -161,7 +161,7 @@ def main():
             "uyruk": "turk",
             "tecrube": 80/12,
             "maas": beyazyaka1.get_maas(),
-            "sektor": "0",
+            "sektor": beyazyaka1.get_sektor(),
             "yeni maas": beyazyaka1.get_yeni_maas()
         },
         "beyazyaka2": {
@@ -173,7 +173,7 @@ def main():
             "uyruk": "turk",
             "tecrube": 30/12,
             "maas": beyazyaka2.get_maas(),
-            "sektor": "0",
+            "sektor": beyazyaka2.get_sektor(),
             "yeni maas": beyazyaka2.get_yeni_maas()
         },
             "beyazyaka3": {
@@ -185,7 +185,7 @@ def main():
             "uyruk": "turk",
             "tecrube": 18/12,
             "maas": beyazyaka3.get_maas(),
-            "sektor": "0",
+            "sektor": beyazyaka3.get_sektor(),
             "yeni maas": beyazyaka3.get_yeni_maas()
         }
 
