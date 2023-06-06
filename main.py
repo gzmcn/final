@@ -1,4 +1,3 @@
-from gettext import install
 from insan import Insan
 from issiz import Issiz
 from calisan import Calisan
