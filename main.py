@@ -1,4 +1,3 @@
-from gettext import install
 from insan import Insan
 from issiz import Issiz
 from calisan import Calisan
@@ -11,7 +10,7 @@ import pandas as pd
 def main():
     try:
 
-
+        # nesneler: 
         insan1 = Insan("40445674801", "ayse", "kemer", 32, "k", "turk")
         insan2 = Insan("22241078301", "veli", "kul", 25, "e", "turk")
 
@@ -43,7 +42,7 @@ def main():
         beyazyaka2 = beyaz_yaka("12345678901", "ali", "demir", 44, "e", "turk", 30, 12442)
         beyazyaka3 = beyaz_yaka("92734872832", "yesim", "berra", 33, "k", "turk", 44, 44837)
 
-        
+        # dongu ile her bir nesneye sinifdaki gerekli metodlari calistiriyoruz
         issizler = [issiz1, issiz2, issiz3]
         for issiz in issizler:
             try:
@@ -79,6 +78,7 @@ def main():
             except Exception as e:
                 print("An error occurred:", str(e))
 
+        # dataframe
         data ={
             "calisan1": {
             "tc_no": "12345678901",
@@ -190,35 +190,43 @@ def main():
         }
 
     }
+        # dataframe'e kisi tipi ekliyoruz
         data_list = []
         for key, value in data.items():
-            value["kisi_tipi"] = key  # Add a new key-value pair for "kisi_tipi"
+            value["kisi_tipi"] = key 
             data_list.append(value)
 
+        # dataframe olusturumu
         df = pd.DataFrame(data_list)
         pd.set_option("display.max_columns", None)
         print(df)
 
+        # maas gereksinimine gore duzenleme
         yuksek_maas = df[df["maas"] > 15000]
         print(yuksek_maas)
           
 
 
-        # df.rename(columns={'maas': 'yeni_maas'}, inplace=True)
+        # yeni maasa gore buyukten kucuge dataframe siralamasi
         df_buyukten_kucuge = df.sort_values(by='yeni maas', ascending=False)
         print(df_buyukten_kucuge)
 
+        # tecrube ve beyazyaka gereksinimine gore dataframe duzenleme
         beyazyaka_df = df[(df['kisi_tipi'].str.contains('beyazyaka')) & (df['tecrube'] > 3)]
         print(beyazyaka_df)
 
+        # maas ve 2-5 satir gereksinimine gore dataframe duzenleme
         yeni1_df = df[df["yeni maas"] > 10000]
         sutunlar = ["tc_no", "yeni maas"]
         cikti_df = yeni1_df[sutunlar].iloc[1:5]
         print(cikti_df)
 
+        # ad, soyad, sektor ve yeni maas dataframe'i
         yeni_df = df[["ad", "soyad", "sektor", "yeni maas"]]
         print(yeni_df)
 
+
+    # exceptionlar
     except Exception as e:
         print("An error occurred:", str(e))
 
